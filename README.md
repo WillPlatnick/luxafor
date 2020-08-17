@@ -1,14 +1,35 @@
 # luxafor
 
+This is just a repo I setup to help me manage my luxaflor flag/git status. It is completely unsupported, as it's mostly just here for my own use.
+
+It updates my Slack and my flag that I'm on a meeting if I'm on a Slack or Zoom call.
+
+It updates my Slack to dnd and sets a status if my macOS is on DND.
+
 ## Setup
 
-```
-npm install --global do-not-disturb-cli
-go get -v -u github.com/leosunmo/goluxafor/example/luxcli
-brew install rockymadden/rockymadden/slack-cli
+```bash
+npm install --global do-not-disturb-cli # get macos dnd status
+go get -v -u github.com/leosunmo/goluxafor/example/luxcli # control lux flag
+brew install rockymadden/rockymadden/slack-cli # talk to Slack
+brew install supervisor # Run script as service
+brew services start supervisor
 mkdir /usr/local/etc/slack-cli
+mkdir -p /usr/local/etc/supervisor.d/
+/usr/bin/pip3 install pyobjc-framework-Quartz
 slack init
 ```
 
+/usr/local/etc/supervisor.d/luxafor.ini contents
 
-# luxafor
+```
+[program:luxafor]
+directory=/Users/williamplatnick/workspace/luxafor
+command=/Users/williamplatnick/workspace/luxafor/lux.sh
+startsecs=0
+user=williamplatnick
+autorestart=true
+environment= PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/williamplatnick/.go/bin"
+stdout_logfile=/Users/williamplatnick/workspace/luxafor/lux.log
+stderr_logfile=/Users/williamplatnick/workspace/luxafor/lux_error.log
+```
