@@ -2,9 +2,12 @@
 
 This is just a repo I setup to help me manage my luxaflor flag/git status. It is completely unsupported, as it's mostly just here for my own use.
 
-It updates my Slack and my flag that I'm on a meeting if I'm on a Slack or Zoom call.
+Workflow:
+* If I put do not disturb mode on my mac: set dnd on slack, set slack status, turn flag red
+* If I'm in a Zoom meeting, set slack status, turn flag red
+* If I'm in a Slack meeting, set slack status, turn flag red
+* When these conditions clear, turn flag green, reset slack status
 
-It updates my Slack to dnd and sets a status if my macOS is on DND.
 
 ## Setup
 
