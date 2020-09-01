@@ -19,7 +19,7 @@ brew install supervisor # Run script as service
 brew services start supervisor
 mkdir /usr/local/etc/slack-cli
 mkdir -p /usr/local/etc/supervisor.d/
-/usr/bin/pip3 install pyobjc-framework-Quartz
+sudo /usr/bin/pip3 install pyobjc-framework-Quartz
 slack init
 ```
 
@@ -35,4 +35,5 @@ autorestart=true
 environment= PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/williamplatnick/.go/bin"
 stdout_logfile=/Users/williamplatnick/workspace/luxafor/lux.log
 stderr_logfile=/Users/williamplatnick/workspace/luxafor/lux_error.log
+brew services restart supervisor
 ```
